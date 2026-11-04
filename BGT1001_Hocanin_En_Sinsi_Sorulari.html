@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>BGT 1001 - Hocanın En Sinsi 40 Sorusu ve Tuzak Analizi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    body {
+      background-color: #090d16;
+      color: #e2e8f0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    select option {
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-[#090d16] text-slate-200 antialiased p-2 sm:p-4 overflow-x-hidden min-h-screen">
+  <div class="bg-[#111827] text-slate-100 border border-slate-800 rounded-xl p-3 sm:p-4 shadow-2xl max-w-4xl mx-auto">
+    
+    <!-- Sayfalar Arası Geçiş (Üst Menü) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3 pb-3 border-b border-slate-800">
+      <a href="index.html" class="flex items-center justify-center sm:justify-start gap-2 px-3 py-2.5 rounded-lg text-xs sm:text-sm font-medium bg-indigo-950/50 hover:bg-indigo-900/60 text-indigo-200 border border-indigo-500/40 transition">
+        <svg class="w-4 h-4 text-indigo-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+        <span>← 1. Modül: 60 Soruluk Genel Sınav</span>
+      </a>
+      <a href="BGT1001_Hocanin_En_Sinsi_Sorulari.html" class="flex items-center justify-center sm:justify-start gap-2 px-3 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-rose-600 text-white shadow-md ring-1 ring-rose-400/50 transition">
+        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <span>2. Modül: Hocanın En Sinsi 40 Sorusu (Aktif)</span>
+      </a>
+    </div>
+
+    <!-- Üst Başlık ve Sekmeler -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3 border-b border-slate-800">
+      <div class="flex items-start sm:items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 shrink-0 mt-0.5 sm:mt-0">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <div>
+          <h2 class="text-slate-100 font-semibold text-sm sm:text-base flex flex-wrap items-center gap-2">
+            <span>Hocanın En Sinsi 40 Sorusu & Slayt Tuzakları</span>
+            <span class="text-[11px] sm:text-xs px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 font-medium">Zor / Seçici</span>
+          </h2>
+          <p class="text-xs text-slate-400 mt-0.5">7 PDF'teki tüm "NOT:" kutuları, istisnalar, yazım tuzakları ve öğrencilerin %90'ının düştüğü çeldiriciler</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:flex items-center gap-1.5 w-full sm:w-auto">
+        <button id="tabQuizBtn" onclick="switchTab('quiz')" class="inline-flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 rounded-lg text-xs font-medium bg-rose-600 text-white shadow-sm transition">
+          <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <span class="truncate">Sinsi Sorular (40)</span>
+        </button>
+        <button id="tabTrapsBtn" onclick="switchTab('traps')" class="inline-flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition">
+          <svg class="w-3.5 h-3.5 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          <span class="truncate">Tuzaklar Listesi</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- SEKME 1: SİNSİ SORULAR TEST EKRANI -->
+    <div id="quizSection" class="pt-3 space-y-3">
+      
+      <!-- Filtre, Mod ve Canlı Skor Çubuğu -->
+      <div class="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-between gap-2.5 bg-[#0b1120] border border-slate-800/90 rounded-lg p-2.5">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
+          <div class="flex items-center gap-2 w-full sm:w-auto">
+            <label class="text-xs text-slate-400 font-medium shrink-0">Kategori:</label>
+            <select id="categorySelect" onchange="filterByCategory()" class="w-full sm:w-auto max-w-full bg-slate-900 text-slate-200 border border-slate-700 rounded-md px-2.5 py-1.5 sm:py-1 text-xs focus:outline-none focus:border-rose-500">
+              <option value="ALL">Tüm Sinsi Sorular (40 Soru)</option>
+              <option value="S12_DETAY">Slayt 1-2: Satır Arası Sözel & Akış Şeması Tuzakları (8)</option>
+              <option value="S3_OP_VERI">Slayt 3: Operatör, Öncelik & Veri Tipi İstisnaları (10)</option>
+              <option value="S45_IO_FONK">Slayt 4-5: cin.get, ++/--, Bool & Return Tuzakları (8)</option>
+              <option value="S67_KARAR_DONGU">Slayt 6-7: If, Switch-Case, Do-While & For Tuzakları (8)</option>
+              <option value="KOD_TUZAK">Avcı Kod Çıktıları (En Çok Yanıltan 6 Kod)</option>
+            </select>
+          </div>
+
+          <button id="modeToggleBtn" onclick="toggleExamMode()" class="w-full sm:w-auto px-2.5 py-1.5 sm:py-1 rounded-md text-xs font-medium border border-slate-700 bg-slate-800/80 text-slate-200 hover:bg-slate-700 transition text-center">
+            Mod: Anında Tuzak Analizi
+          </button>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between sm:justify-end gap-2 sm:gap-3 text-xs font-medium pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-800/80">
+          <span class="inline-flex items-center gap-1 text-emerald-400">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Doğru: <b id="statCorrect">0</b>
+          </span>
+          <span class="inline-flex items-center gap-1 text-rose-400">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+            Yanlış: <b id="statWrong">0</b>
+          </span>
+          <span class="text-slate-400">Boş: <b id="statEmpty">40</b></span>
+          <span class="px-2.5 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">Puan: <b id="statScore">0</b>/100</span>
+        </div>
+      </div>
+
+      <!-- İlerleme Çubuğu -->
+      <div class="flex items-center gap-2">
+        <div class="flex-1 bg-slate-900 border border-slate-800 h-2 rounded-full overflow-hidden">
+          <div id="progressBar" class="bg-rose-500 h-full transition-all duration-300" style="width: 3%"></div>
+        </div>
+        <span id="questionCounterText" class="text-xs text-slate-400 font-medium whitespace-nowrap">Soru 1 / 40</span>
+      </div>
+
+      <!-- Soru Kartı -->
+      <div class="bg-[#0b1120] border border-slate-800 rounded-xl p-3 sm:p-4 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+            <span id="qBadge" class="text-xs font-medium px-2.5 py-0.5 rounded bg-slate-800 text-rose-300 border border-slate-700">Slayt 1</span>
+            <span id="qTrapTag" class="text-xs font-medium px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">Sinsi Nokta</span>
+          </div>
+          <span id="qStatusBadge" class="inline-flex items-center gap-1 text-xs font-medium text-slate-400">Henüz cevaplanmadı</span>
+        </div>
+
+        <div id="qText" class="text-sm sm:text-base font-medium text-slate-100 leading-relaxed break-words"></div>
+
+        <!-- Kod veya Tablo Alanı -->
+        <pre id="qCode" class="hidden bg-[#060911] text-amber-200 border border-slate-800 rounded-lg p-3 text-[11px] sm:text-xs font-mono overflow-x-auto max-w-full leading-snug"></pre>
+
+        <!-- Şıklar (A - E) -->
+        <div id="optionsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-2"></div>
+
+        <!-- Tuzak Açıklaması Kutusu -->
+        <div id="explanationBox" class="hidden rounded-lg p-3 border text-xs sm:text-sm leading-relaxed break-words"></div>
+      </div>
+
+      <!-- Alt Navigasyon -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-1">
+        <div class="grid grid-cols-3 sm:flex items-center gap-1.5 w-full sm:w-auto">
+          <button onclick="prevQuestion()" id="prevBtn" class="inline-flex items-center justify-center gap-1 px-2.5 sm:px-3 py-2.5 sm:py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700 disabled:opacity-40 transition">
+            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            <span>Önceki</span>
+          </button>
+          <button onclick="nextQuestion()" id="nextBtn" class="inline-flex items-center justify-center gap-1 px-2.5 sm:px-3 py-2.5 sm:py-1.5 rounded-lg text-xs font-medium bg-rose-600 text-white hover:bg-rose-500 disabled:opacity-40 transition">
+            <span>Sonraki</span>
+            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
+          <button onclick="showCurrentAnswer()" class="inline-flex items-center justify-center gap-1 px-2 sm:px-2.5 py-2.5 sm:py-1.5 rounded-lg text-xs font-medium border border-slate-700 bg-slate-800/90 text-amber-300 hover:bg-slate-700 transition">
+            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <span class="truncate">Tuzağı Gör</span>
+          </button>
+        </div>
+
+        <div class="flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto">
+          <div class="flex items-center gap-1.5 flex-1 sm:flex-initial">
+            <label class="text-xs text-slate-400 shrink-0">Soruya Git:</label>
+            <select id="jumpSelect" onchange="jumpToQuestion(this.value)" class="w-full sm:w-auto bg-slate-900 text-slate-200 border border-slate-700 rounded-md px-2 py-2 sm:py-1 text-xs focus:outline-none"></select>
+          </div>
+          <button onclick="finishOrResetExam()" id="finishBtn" class="inline-flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 rounded-lg text-xs font-medium border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition shrink-0">
+            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+            </svg>
+            <span id="finishBtnLabel">Sıfırla</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEKME 2: TÜM SLAYT TUZAKLARI ÖZET TABLOSU -->
+    <div id="trapsSection" class="hidden pt-3 space-y-2.5">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+        <div class="bg-[#0b1120] border border-slate-800 rounded-lg p-3 space-y-1.5">
+          <div class="text-xs font-semibold text-rose-400">Tuzak 1-5: Slayt 1 & 2 Satır Arası Detayları</div>
+          <ul class="text-xs text-slate-300 space-y-1 list-disc pl-4">
+            <li><b class="text-slate-100">C, C++, C# Hangi Seviye?</b> Yüksek Seviyeli değil, slaytta <b class="text-amber-300">Ortak Seviyeli Diller</b> grubundadır! (Yüksek Seviyeli: FORTRAN, Pascal, Basic, COBOL).</li>
+            <li><b class="text-slate-100">Pasta / Fırın Örneği:</b> Fırının kaç derece ve ne zaman açıldığı belirsizliği algoritmanın <b class="text-amber-300">Kesinlik/Belirleyicilik</b> kuralını bozar.</li>
+            <li><b class="text-slate-100">ASCII Özel Karakterler:</b> <code class="text-emerald-400">0-31</code> ve <code class="text-emerald-400">127</code> yazılamayan özel karakterlerdir (128 değil!).</li>
+            <li><b class="text-slate-100">Akış Şeması Ok Yönleri:</b> Karşılaştırma (baklava) ve Döngü (altıgen) şekillerinde koşul <b class="text-emerald-400">sağlanıyorsa SAĞDAKİ ok</b>, sağlanmıyorsa <b class="text-rose-400">ALT (aşağıdaki) ok</b> izlenir.</li>
+          </ul>
+        </div>
+
+        <div class="bg-[#0b1120] border border-slate-800 rounded-lg p-3 space-y-1.5">
+          <div class="text-xs font-semibold text-rose-400">Tuzak 6-10: Slayt 3 Operatör ve Veri Tipi Sırları</div>
+          <ul class="text-xs text-slate-300 space-y-1 list-disc pl-4">
+            <li><b class="text-slate-100"><code>^</code> Operatörünün İki Görevi:</b> Slaytta hem <b class="text-amber-300">Üs Alma</b> hem de <b class="text-amber-300">Özel Veya (XOR)</b> işlemi yaptığı vurgulanır.</li>
+            <li><b class="text-slate-100">C++ vs Java <code>char</code> Boyutu:</b> C++'da <code>char</code> <b class="text-emerald-400">1 byte</b>, Java'da ise <b class="text-emerald-400">2 byte</b> yer kaplar!</li>
+            <li><b class="text-slate-100">C++'da <code>long</code> Neden Kullanılmaz?</b> 16-32-64 bit mimari farklarından dolayı <code>int</code> ile aynı hale geldiği için yeni mimarilerde kullanılmaz (Java'da ise 8 byte'tır).</li>
+            <li><b class="text-slate-100"><code>string</code> C Dilinde Var mı?</b> Hayır! C'de tanımlı değildir, C++'a sonradan (<code>string.h</code>) eklenmiştir ve bellekte <b class="text-amber-300">8 byte</b> yer kaplar.</li>
+          </ul>
+        </div>
+
+        <div class="bg-[#0b1120] border border-slate-800 rounded-lg p-3 space-y-1.5">
+          <div class="text-xs font-semibold text-rose-400">Tuzak 11-15: Slayt 4 & 5 Kod İçi Çeldiriciler</div>
+          <ul class="text-xs text-slate-300 space-y-1 list-disc pl-4">
+            <li><b class="text-slate-100"><code>cin.get(x)</code> Tuzağı:</b> Klavyeden <code>"1993"</code> veya <code>"Merhaba"</code> girilse bile sadece <b class="text-amber-300">ilk haneyi ('1' veya 'M')</b> <code>char</code> olarak alır.</li>
+            <li><b class="text-slate-100"><code>++x</code> vs <code>x++</code>:</b> Tek başına satırda fark yoktur; ama <code>sonra = sayi2++;</code> satırında önce eski değer atanır, <code>sonra</code> değişkeni artışı görmez!</li>
+            <li><b class="text-slate-100">Mantıksal Çıktı:</b> C++ <code>cout</code> ekrana <code>1</code> / <code>0</code> basar; Java <code>println</code> ise <code>true</code> / <code>false</code> basar.</li>
+            <li><b class="text-slate-100"><code>return</code> Altındaki Kod:</b> Derleme hatası vermez ama <code>return</code> görüldüğü an altprogram biter, altındaki satırlar <b class="text-rose-400">ölü koddur</b>.</li>
+          </ul>
+        </div>
+
+        <div class="bg-[#0b1120] border border-slate-800 rounded-lg p-3 space-y-1.5">
+          <div class="text-xs font-semibold text-rose-400">Tuzak 16-20: Slayt 6 & 7 Karar ve Döngü Tuzakları</div>
+          <ul class="text-xs text-slate-300 space-y-1 list-disc pl-4">
+            <li><b class="text-slate-100"><code>switch-case</code> Yasakları:</b> <code>float</code> ve <code>double</code> <b class="text-rose-400">kesinlikle kullanılamaz</b> (veri kaybı nedeniyle). <code>&lt;</code> ve <code>&gt;</code> kullanılamaz.</li>
+            <li><b class="text-slate-100"><code>do-while</code> Scope (Kapsam) Hatası:</b> <code>while(sayi != 0);</code> içinde kontrol edilen <code>sayi</code> değişkeni <code>do { }</code> içinde tanımlanırsa derleme hatası verir; döngü dışında tanımlanmalıdır!</li>
+            <li><b class="text-slate-100">Çoklu <code>for</code> Ayracı:</b> <code>for(int a=0, b=20; a&lt;=20 &amp;&amp; b&gt;=10; a+=2, b--)</code> -> Ana bölmeler <code>;</code> ile, değişkenler ve artışlar <code>,</code> ile ayrılır!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const SVG_CHECK = `<svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+    const SVG_CROSS = `<svg class="w-4 h-4 text-rose-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+    const SVG_EYE = `<svg class="w-3.5 h-3.5 text-amber-300 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
+
+    const questions = [
+      // BÖLÜM 1: SLAYT 1 & 2 SATIR ARASI SÖZEL & AKIŞ ŞEMASI TUZAKLARI (1-8)
+      {
+        id: 1, cat: "S12_DETAY", slide: "Slayt 1 / Sayfa 23", trap: "Seviye Sınıflandırma Tuzağı",
+        q: "Hocanın 1. slaytındaki 'Programlama Dilleri ve Çeşitleri' sınıflandırmasına göre C, C++ ve C# dilleri hangi grupta yer alır? (Öğrencilerin %90'ı Yüksek Seviyeli şıkkına düşer!)",
+        options: [
+          "A) Çok Yüksek Seviyeli Diller (Görsel Diller)",
+          "B) Yüksek Seviyeli Diller",
+          "C) Ortak Seviyeli Diller",
+          "D) Alçak Seviyeli Diller",
+          "E) Makine Dili"
+        ],
+        ans: 2,
+        exp: "SİNSİ DETAY (Slayt 1, s.23): Slaytta Yüksek Seviyeli Diller: FORTRAN, Pascal, Basic, COBOL olarak verilmiştir. C, C# ve C++ ise 'c) Ortak Seviyeli Diller' grubundadır!"
+      },
+      {
+        id: 2, cat: "S12_DETAY", slide: "Slayt 1 / Sayfa 19", trap: "Pasta ve Fırın Örneği",
+        q: "1. slaytta verilen 'Pasta Yapma Algoritması' örneğinde hocanın parantez içinde özellikle vurguladığı kusur aşağıdakilerden hangisidir?",
+        options: [
+          "A) Pastanın malzemelerinin çok pahalı olması",
+          "B) Fırının yeteri kadar ısınmasının hangi koşula bağlı olduğu, ne zaman açıldığı ve kaç dereceye ayarlandığı gibi belirsizlikler içermesi",
+          "C) Pasta yapımının akış diyagramı ile çizilememesi",
+          "D) Algoritmanın 10 adımdan uzun sürmesi",
+          "E) Pasta tarifinin sadece makine diliyle ifade edilebilmesi"
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 1, s.19): 'Algoritmada genel işleyişi etkileyebilecek hiçbir belirsizlik olmamalıdır. (Bu örnekte öyle belirsizlikler var: Bir fırının yeteri kadar ısınabilmesi hangi koşula bağlıdır, ne zaman açılmış olmalı ve kaç dereceye ayarlanmış olmalıdır gibi...)'"
+      },
+      {
+        id: 3, cat: "S12_DETAY", slide: "Slayt 1 / Sayfa 14", trap: "Derleme ve Bağlama İstisnası",
+        q: "Yazılım geliştirme adımlarındaki 'Derleme (Compile)' ve 'Bağlama (Linking)' hakkında slaytta belirtilen istisnai durum nedir?",
+        options: [
+          "A) Bağlama adımı her zaman Derleme adımından önce yapılır.",
+          "B) Derleme adımı doğrudan Makine dili üretir, Bağlama ise Obje kod üretir.",
+          "C) Bazı IDE ortamlarda ve derleyicilerde Derleme ve Bağlama bir bütündür ve beraberce halledilirler; programcının ayrıca bağlama yapması gerekmez.",
+          "D) Bağlama işlemi sadece Java'da vardır, C++'da yoktur.",
+          "E) Derleme adımında mantık hataları otomatik düzeltilir."
+        ],
+        ans: 2,
+        exp: "SİNSİ DETAY (Slayt 1, s.14): Derleme ara kod olarak Obje kod üretir, Bağlama ise Makine dili oluşturur. 'Ancak bazı IDE ortamlarda ve derleyicilerde Derleme ve Bağlama bir bütündür ve beraberce halledilirler.'"
+      },
+      {
+        id: 4, cat: "S12_DETAY", slide: "Slayt 1 / Sayfa 16", trap: "Run-time Error Mesaj Dili",
+        q: "Slayt 1'e göre 'Run-time Error' (Çalışma zamanı hatası) oluştuğunda verilen hata mesajının dili ve programın sonlandırılması hakkında hangisi doğrudur?",
+        options: [
+          "A) Hata mesajı her zaman İngilizce verilir ve programcı bu hatayı kesinlikle yakalayamaz.",
+          "B) Hata mesajı çoğunlukla çalışan işletim sisteminin dili ile verilir; eğer programcı bu hatayı ele almışsa kendi mesajıyla uygun şekilde sonlandırabilir.",
+          "C) Hata mesajı derleyici tarafından satır numarasıyla derleme sırasında verilir.",
+          "D) Run-time Error sadece noktalı virgül unutulduğunda ortaya çıkar.",
+          "E) İşletim sistemi hatayı görmezden gelerek programı çalıştırmaya devam eder."
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 1, s.16): 'Bu tip hatalarda hata mesajı çoğunlukla çalışan işletim sisteminin dili ile verilir. Eğer bu tip hataları kullanıcı ele almışsa, program programcının vereceği mesajlarla ve uygun şekilde sonlandırılabilir.'"
+      },
+      {
+        id: 5, cat: "S12_DETAY", slide: "Slayt 1 / Sayfa 26", trap: "Digit vs Bit Kavramı",
+        q: "Sayı sistemlerinde '123456' onlu sayısı ile '100101' ikili sayısını oluşturan rakamların adlandırılması hakkında slaytta geçen doğru ifade hangisidir?",
+        options: [
+          "A) İkisine de sadece byte denir.",
+          "B) Onluk sistemdeki her rakama 'bit', ikilik sistemdeki her rakama 'digit' denir.",
+          "C) Onluk sistemde her rakam 'decimal digit' (veya digit), ikilik sistemde ise 'binary digit' (veya kısaca bit) olarak adlandırılır.",
+          "D) 123456 sayısı 6 bitlik, 100101 sayısı 6 digitlik sayıdır.",
+          "E) İkilik sistemde rakamlar 0, 1 ve 2'den oluşur."
+        ],
+        ans: 2,
+        exp: "SİNSİ DETAY (Slayt 1, s.26-27): Onluk sayı sistemlerinde her bir rakam decimal digit ya da sadece digit iken, ikilik sistemde binary digit ya da kısaca bit olarak adlandırılır. 123456 -> 6 digitlik onlu sayı, 100101 -> 6 bitlik ikili sayıdır."
+      },
+      {
+        id: 6, cat: "S12_DETAY", slide: "Slayt 2 / Sayfa 3", trap: "ASCII Yazılamayan Karakterler",
+        q: "ASCII karakter tablosunda 'yazılamayan özel karakterler' tam olarak hangi sayısal karşılık aralığındadır?",
+        options: [
+          "A) 0-15 ve 255",
+          "B) 0-31 ve 127",
+          "C) 32-64 ve 128",
+          "D) 65-90 arası",
+          "E) Sadece 0 ve 1"
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 2, s.3): Slaytta açıkça '0-31 ve 127 karakterleri yazılamayan özel karakterlerdir' maddesi yer alır."
+      },
+      {
+        id: 7, cat: "S12_DETAY", slide: "Slayt 2 / Sayfa 12 & 15", trap: "Akış Diyagramı Ok Yönleri",
+        q: "Slayt 2'deki Akış Diyagramı kurallarına göre; 'Karşılaştırma (A>100)' ve 'Döngü (1<I<100)' şekillerinde koşulun DOĞRU olması (sağlanması) halinde akış hangi yöndeki ok ile devam eder?",
+        options: [
+          "A) Her ikisinde de üstteki ok ile devam eder.",
+          "B) Karşılaştırmada alttaki ok, döngüde soldaki ok ile devam eder.",
+          "C) Uygulamalarda genellikle koşulun doğru olması (veya döngünün devam etmesi) halinde SAĞINDAKİ ok ile, sağlanmaması halinde ALTINDAKİ (aşağıdaki) ok ile devam eder.",
+          "D) Her ikisinde de sadece aşağıdaki ok ile devam eder.",
+          "E) Okların yönü tamamen rastgeledir, E ve H yazılmaz."
+        ],
+        ans: 2,
+        exp: "SİNSİ DETAY (Slayt 2, s.12 ve s.15): Karşılaştırma ve döngü şekillerinde koşul doğruysa/devam ediyorsa akış SAĞDAN devam eder; şart sağlanmıyorsa akış AŞAĞIDAN (altındaki ok ile) devam eder."
+      },
+      {
+        id: 8, cat: "S12_DETAY", slide: "Slayt 2 / Sayfa 10", trap: "Matematiksel İşlem Şekli Atama Yönü",
+        q: "Akış diyagramlarındaki 'Matematiksel İşlem' (Dikdörtgen) şekli içerisinde 'C = 3 * A^2 + 5' gibi bir ifade bulunduğunda bilgisayar nasıl hareket eder?",
+        options: [
+          "A) C değişkeninin eski değerini 3*A^2+5 ile karşılaştırır.",
+          "B) Eşitliğin sol tarafını hesaplayıp sağ tarafındaki A değişkenine aktarır.",
+          "C) Eşitliğin sağ tarafı işlem önceliği sırasına göre hesaplanıp, eşitliğin sol tarafındaki değişkenin eski içeriğine bakılmaksızın aktarılır.",
+          "D) C değişkeninin eski değeriyle yeni sonucu toplar.",
+          "E) Ekrana doğrudan C harfini yazdırır."
+        ],
+        ans: 2,
+        exp: "SİNSİ DETAY (Slayt 2, s.10): 'Şekil içinde eşitliğin sağ tarafı işlem önceliği sırasına göre hesaplanıp, eşitliğin sol tarafındaki değişkenin içeriğine bakılmaksızın aktarılır.'"
+      },
+
+      // BÖLÜM 2: SLAYT 3 OPERATÖR, İŞLEM ÖNCELİĞİ VE VERİ TİPİ İSTİSNALARI (9-18)
+      {
+        id: 9, cat: "S3_OP_VERI", slide: "Slayt 3 / Sayfa 16", trap: "Rakam vs Sayı Notu",
+        q: "Slayt 3'te Küçüktür Operatörü anlatılırken 'NOT:' kutusunda vurgulanan matematiksel kural aşağıdakilerden hangisidir?",
+        options: [
+          "A) Her sayı bir rakamdır, ancak her rakam bir sayı değildir.",
+          "B) 0-9 arasındaki sayılar rakam olarak nitelendirilirler. Her rakam bir sayıdır, ancak her sayı bir rakam değildir.",
+          "C) Negatif sayılar da birer rakamdır.",
+          "D) 10 sayısı en büyük rakamdır.",
+          "E) Rakamlar sadece ikilik tabanda kullanılır."
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 3, s.16 NOT): '0-9 arasındaki sayılar rakam olarak nitelendirilirler. Her rakam bir sayıdır, ancak her sayı bir rakam değildir.'"
+      },
+      {
+        id: 10, cat: "S3_OP_VERI", slide: "Slayt 3 / Sayfa 23", trap: "Negatif Sayı Karşılaştırma Tuzağı",
+        q: "Slayt 3'teki karşılaştırma algoritmasında:\n4. A==B | 5. A!=B | 6. A>B | 7. A>=B | 8. A<B | 9. A<=B\nKullanıcı A = -4 ve B = -9 girdiğinde hangi satırlar işlenir? (İşaret tuzağına dikkat!)",
+        options: [
+          "A) 5, 8, 9 (Çünkü 4, 9'dan küçüktür)",
+          "B) 5, 6, 7 (Çünkü -4 sayısı -9 sayısından büyüktür)",
+          "C) 4, 7, 9",
+          "D) Sadece 5 ve 8",
+          "E) Negatif sayılar karşılaştırılamaz"
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 3, s.23 Tablosu): Öğrenciler -4 ve -9'u görünce 4<9 sanıp 8 ve 9. satırı seçer! Oysa -4 > -9 olduğu için 5 (A!=B), 6 (A>B) ve 7 (A>=B) satırları işlenir."
+      },
+      {
+        id: 11, cat: "S3_OP_VERI", slide: "Slayt 3 / Sayfa 34", trap: "^ Operatörünün Çift Görevi",
+        q: "Slayt 3'te 'Tüm tabloları dikkatle incelerseniz ^ operatörünün hem ... hem de ... işlemini gerçekleştirdiğini göreceksiniz' notunda boş bırakılan iki işlem nedir?",
+        options: [
+          "A) Hem Bölme hem Mod alma",
+          "B) Hem Üs Alma hem de Özel Veya (XOR) işlemi",
+          "C) Hem VE (AND) hem VEYA (OR) işlemi",
+          "D) Hem Atama hem Karşılaştırma işlemi",
+          "E) Hem Çarpma hem Tersleme işlemi"
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 3, s.34): 'Tüm tabloları dikkatle incelerseniz ^ operatörünün hem üs alma hem de özel veya işlemini gerçekleştirdiğini göreceksiniz. Bazı operatörler kullanım yerlerine göre farklı işlemler uygulayabilirler.'"
+      },
+      {
+        id: 12, cat: "S3_OP_VERI", slide: "Slayt 3 / Sayfa 38 & 40", trap: "Üs Alma Önceliği ve Slayt Çözümü",
+        q: "Slayt 3 Sayfa 40'ta x = 2, y = 1, z = 0 değerleri için:\nx * y^3 + z * 4 - y / x * 2 + x * z / y^2 + x\nifadesinin slayt tablosundaki adım adım çözümünde 1. adımda '2 * 1^3 = 8' alınarak sonuç kaç bulunmuştur?",
+        options: [
+          "A) 3",
+          "B) 5",
+          "C) 8",
+          "D) 9",
+          "E) 12"
+        ],
+        ans: 3,
+        exp: "SİNSİ DETAY (Slayt 3, s.38 & 40): Hoca s.38'de 'Üs alma operatörü (^) işlem önceliği olarak çarpma-bölme ile aslında özdeştir' notunu düşmüş ve s.40'ta ilk terimi (2*1)^3 = 8 olarak hesaplayıp 8 + 0 - 1 + 0 + 2 = 9 bulmuştur!"
+      },
+      {
+        id: 13, cat: "S3_OP_VERI", slide: "Slayt 3 / Sayfa 45", trap: "Doğruluk Tablosunda Ekstra Sorgu Tuzağı",
+        q: "Çalışanlar tablosunda B kolonu Cinsiyet=='E' sorgusunu temsil etmektedir. Slayttaki NOT'a göre cinsiyeti Kadın olanlar için de işlem yapılmak istenseydi en verimli yol ne olurdu?",
+        options: [
+          "A) Cinsiyet=='K' için yeni bir C kolonu ve ekstra bir sorgu daha yazmak zorunludur.",
+          "B) B kolonuna ait sorgularda 0 (yanlış) cevabını alan sorgulamalar doğrudan kullanılabilirdi; böylece ekstra bir sorgu yazılmasına gerek kalmazdı.",
+          "C) Yaş kolonunu 2 ile çarpmak gerekirdi.",
+          "D) Programı baştan yazmak gerekirdi.",
+          "E) VE operatörünü silmek gerekirdi."
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 3, s.45 NOT): 'Bu algoritmada ayrıca cinsiyeti Kadın olanlar için de herhangi bir işlem yapılacak olunsaydı yukarıdaki tabloda B kolonuna ait sorgularda 0 cevabını alan sorgulamalar kullanılabilirdi. Böylece ekstra bir sorgu yazılmasına gerek kalmazdı.'"
+      },
+      {
+        id: 14, cat: "S3_OP_VERI", slide: "Slayt 3 / Sayfa 55 & 65", trap: "C++ vs Java char Boyutu Farkı",
+        q: "Slayt 3'e göre 'char' veri tipinin C++ ve Java dillerinde bellekte kapladığı alan sırasıyla kaç byte'tır?",
+        options: [
+          "A) C++'da 1 byte — Java'da 1 byte",
+          "B) C++'da 1 byte — Java'da 2 byte",
+          "C) C++'da 2 byte — Java'da 1 byte",
+          "D) C++'da 2 byte — Java'da 4 byte",
+          "E) C++'da 4 byte — Java'da 8 byte"
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 3, s.55 ve s.65): C++'da char bellekte 1 byte yer kaplarken, Java'da char bellekte 2 byte yer kaplar!"
+      },
+      {
+        id: 15, cat: "S3_OP_VERI", slide: "Slayt 3 / Sayfa 57 & 67", trap: "C++ vs Java long Veri Tipi Tuzağı",
+        q: "Slayt 3'te 'long' veri tipi hakkında C++ ve Java karşılaştırmasında vurgulanan kritik fark nedir?",
+        options: [
+          "A) long veri tipi sadece ondalıklı sayıları tutar.",
+          "B) C++'da 16-32-64bit işlemci mimari farklılıklarından dolayı int ile aynı özelliğe sahip hale geldiği için yeni mimarilerde kullanılmamaktadır; Java'da ise 8 byte yer kaplar ve int'in taşıyamayacağı sayıları saklar.",
+          "C) Java'da long veri tipi tamamen kaldırılmıştır.",
+          "D) C++'da long 1 byte, Java'da 2 byte yer kaplar.",
+          "E) Her iki dilde de long sadece karakter tutar."
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 3, s.57 & 67): C++'da işlemci mimarisi farklarından dolayı int ile aynı hale geldiği için kullanılmadığı, Java'da ise 8 byte (-2^63 ile 2^63) olarak kullanıldığı özellikle belirtilmiştir."
+      },
+      {
+        id: 16, cat: "S3_OP_VERI", slide: "Slayt 3 / Sayfa 59", trap: "Float 7 Hane Duyarlılık Tuzağı",
+        q: "Slayt 3'te verilen '368.584100125' sayısı neden 'float' veri tipi içerisinde tutulamaz ve 'double' olarak tanımlanmak zorundadır?",
+        options: [
+          "A) Sayının tam kısmı 100'den büyük olduğu için",
+          "B) Float veri tipi virgülden sonraki kısımda en fazla 7 haneye kadar duyarlı olduğu için (bu sayıda virgülden sonra 9 hane vardır)",
+          "C) Float veri tipi pozitif sayıları tutamadığı için",
+          "D) Double veri tipi bellekte daha az (2 byte) yer kapladığı için",
+          "E) Sayının sonunda F harfi olmadığı için"
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 3, s.58-59): Float 4 byte yer kaplar ve virgülden sonra en fazla 7 haneye kadar duyarlıdır. 368.584100125 sayısının duyarlılığı yetmeyeceğinden double (8 byte, 15 hane duyarlı) tanımlanır."
+      },
+      {
+        id: 17, cat: "S3_OP_VERI", slide: "Slayt 3 / Sayfa 62 & 69", trap: "String Veri Tipi Sırları",
+        q: "Slayt 3'e göre 'string' veri tipi hakkında aşağıdakilerden hangisi YANLIŞTIR?",
+        options: [
+          "A) Bellekte 8 byte yer kaplar.",
+          "B) C dilinde tanımlı olmayan ve C++'a sonradan yazılmış özel bir veri tipidir.",
+          "C) Arka planda içerisindeki toplam karakter sayısı kadar uzunluğa sahip bir char dizisi üzerinden çalışır.",
+          "D) C++'da kullanılması için #include<string.h> kütüphanesinin çağrılması gereklidir.",
+          "E) Java'da String veri tipi += operatörünü kabul etmez, derleme hatası verir."
+        ],
+        ans: 4,
+        exp: "SİNSİ DETAY (Slayt 3, s.62 & 70): Slayt s.70'teki Java kodunda 'karakterKatari += \" ve string veri tipi += operatorunu kabul eder.\"' örneği bizzat verilmiştir!"
+      },
+      {
+        id: 18, cat: "S3_OP_VERI", slide: "Slayt 3-Kurulum / Sayfa 16", trap: "Eclipse Sekmeleri (JAR Dahil Etme)",
+        q: "Eclipse IDE'de yeni bir Java projesi oluştururken karşımıza çıkan sekmelerden hangisi 'Harici kütüphaneleri ve JAR dosyalarını projeye include etmek' için kullanılır?",
+        options: [
+          "A) Source sekmesi",
+          "B) Projects sekmesi",
+          "C) Libraries sekmesi",
+          "D) Order and Export sekmesi",
+          "E) Welcome sekmesi"
+        ],
+        ans: 2,
+        exp: "SİNSİ DETAY (Slayt 3-Kurulum, s.16): Source (dosya/klasör ekleme), Projects (bağımlı diğer projeleri referans gösterme), Libraries (harici kütüphaneleri ve JAR dosyalarını projeye include etme)."
+      },
+
+      // BÖLÜM 3: SLAYT 4 & 5 GİRDİ/ÇIKTI, ++/--, BOOL & RETURN TUZAKLARI (19-26)
+      {
+        id: 19, cat: "S45_IO_FONK", slide: "Slayt 4 / Sayfa 12", trap: "cin vs scanf Formatlama Farkı",
+        q: "Slayt 4'e göre C dilinde kullanılan 'scanf' fonksiyonuna kıyasla C++ ile gelen 'cin' komutunun en büyük avantajı nedir?",
+        options: [
+          "A) Sadece tam sayıları okuyabilmesi",
+          "B) Formatlamayı kendisinin yapması; böylece veri giriş kodlarının veri tiplerine olan bağımlılığını ortadan kaldırarak hata çıkmasını minimuma indirgemesi",
+          "C) Kütüphane çağırmaya gerek kalmadan çalışması",
+          "D) Ekrana çıktı vermeyi de sağlaması",
+          "E) Sadece tek bir karakter okuması"
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 4, s.12): 'scanf fonksiyonu her veri tipi için içine farklı bir formatlama harfi alırdı. Lakin C++ ile gelen cin komutu bu formatlamayı sizin için kendisi yapmaktadır.'"
+      },
+      {
+        id: 20, cat: "S45_IO_FONK", slide: "Slayt 4 / Sayfa 14-15", trap: "cin.get() Çoklu Karakter Tuzağı",
+        q: "Aşağıdaki C++ programı çalıştırıldığında kullanıcı klavyeden '2026' yazıp ENTER tuşuna basarsa x değişkeninin içeriği ne olur?",
+        code: "#include <iostream>\nusing namespace std;\nint main() {\n    char x;\n    cin.get(x);\n}",
+        options: [
+          "A) 2026 tam sayısı atanır",
+          "B) Sadece ilk hane olan '2' karakteri char olarak atanır",
+          "C) Son hane olan '6' karakteri atanır",
+          "D) Fazla karakter girildiği için Run-time Error verir",
+          "E) 2 + 0 + 2 + 6 = 10 değeri atanır"
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 4, s.14-15): 'Ne kadar uzunlukta bilgi girişi olursa olsun get komutu sadece ilk haneyi dikkate alır ve bu haneyi char olarak düşünerek atama işlemini gerçekleştirir.'"
+      },
+      {
+        id: 21, cat: "S45_IO_FONK", slide: "Slayt 4 / Sayfa 39", trap: "Tekli Eksi (-) Tersleme Operatörü",
+        q: "Aşağıdaki kod parçasında 'negatif' adlı değişkenin alacağı değer nedir ve çıkarma operatörü burada hangi görevde kullanılmıştır?",
+        code: "int sayi = 50;\nint negatif = -sayi;",
+        options: [
+          "A) 49 olur — Azaltma (--) görevi görmüştür",
+          "B) -50 olur — Tek değişken üzerinde kullanıldığı için tersleme görevi görmüştür",
+          "C) 0 olur — Kendisinden çıkarılmıştır",
+          "D) Syntax hatası verir — Eşittirden sonra eksi gelemez",
+          "E) 50 kalır — Etkisiz elemandır"
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 4, s.39): 'Aynı zamanda çıkarma operatörü tek değişken üzerinde kullanılması halinde tersleme görevi görür... 50 sayısına -sayi işlemi uygulanır ve negatif adlı değişken -50 değerini alır.'"
+      },
+      {
+        id: 22, cat: "S45_IO_FONK", slide: "Slayt 5 / Sayfa 4-6", trap: "++ Operatörü Tek Başına vs Atamada",
+        q: "Aritmetik arttırma (++) operatörünün değişkenin önünde (++a) veya arkasında (a++) yer almasıyla ilgili hangi ifade DOĞRUDUR?",
+        options: [
+          "A) Tek başına 'a++;' yazıldığında a 1 artarken, '++a;' yazıldığında a 2 artar.",
+          "B) Tek başına kullanıldıklarında önünde veya arkasında olması sonucu değiştirmez; istisna sadece atama (=) operatörü ile birlikte kullanıldıklarında oluşur.",
+          "C) Operatör arkadaysa (sayi2++) önce arttırma yapılır, sonra atama yapılır.",
+          "D) Operatör öndeyse (++sayi1) önce atama yapılır, sonra arttırma yapılır.",
+          "E) Java'da ++a kullanımı yasaktır."
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 5, s.4): Tek başına kullanıldığında önünde ya da arkasında olması sonucu değiştirmez. Ancak atama (=) ile kullanıldığında: öndeyse (++sayi1) önce arttırılır sonra atanır; arkadaysa (sayi2++) önce atanır sonra arttırılır."
+      },
+      {
+        id: 23, cat: "S45_IO_FONK", slide: "Slayt 5 / Sayfa 13-16", trap: "C++ vs Java Mantıksal Çıktı Farkı",
+        q: "Aynı mantıksal karşılaştırma ifadelerini ekrana yazdıran C++ (cout) ve Java (System.out.println) programlarının ekran çıktıları arasındaki fark nedir?",
+        options: [
+          "A) İkisi de ekrana true ve false yazar.",
+          "B) İkisi de ekrana 1 ve 0 yazar.",
+          "C) C++ ekran çıktısında yanlış için 0, doğru için 1 yazarken; Java ekran çıktısında yanlış için false, doğru için true yazar.",
+          "D) C++ true/false yazarken, Java E/H yazar.",
+          "E) Java'da mantıksal ifadeler doğrudan ekrana yazdırılamaz."
+        ],
+        ans: 2,
+        exp: "SİNSİ DETAY (Slayt 5, s.14 ve s.16): C++ ekran çıktısında 0 ve 1 değerlerini basarken, aynı programın Java kodu false ve true değerlerini basar."
+      },
+      {
+        id: 24, cat: "S45_IO_FONK", slide: "Slayt 5 / Sayfa 21", trap: "Return Sonrası Kodlar",
+        q: "Bir fonksiyon veya metot içerisinde 'return sonuc;' satırının hemen altına 'sonuc = sonuc + 50;' satırı yazılırsa ne olur?",
+        options: [
+          "A) Sonuç 50 arttırılarak geri döndürülür.",
+          "B) Fonksiyon iki kez değer döndürür.",
+          "C) Fonksiyonlarda ve metotlarda return deyiminden sonra yazılacak kodlar işlemezler; return görüldüğü anda veri döndürülür ve fonksiyon biter.",
+          "D) Bilgisayar otomatik olarak return satırını en sona taşır.",
+          "E) İşletim sistemi Run-time Error verir."
+        ],
+        ans: 2,
+        exp: "SİNSİ DETAY (Slayt 5, s.21 NOT): 'Fonksiyonlarda ve Metotlarda return deyiminden sonra yazılacak kodlar işlemezler. Fonksiyon çalışırken return deyimi görüldüğü anda veri geri döndürülür ve fonksiyon görevini bitirmiş olarak kabul edilir.'"
+      },
+      {
+        id: 25, cat: "S45_IO_FONK", slide: "Slayt 5 / Sayfa 19-20", trap: "Altprogram İsim ve Parametre Kuralı",
+        q: "Fonksiyon ve metot tanımlama kurallarına göre aşağıdakilerden hangisi derleme sırasında HATA verir?",
+        options: [
+          "A) Geri dönüş yapmayan bir fonksiyonun dönüş tipini void yapmak",
+          "B) Bir fonksiyona int sayi1, int sayi2 şeklinde iki parametre vermek",
+          "C) Aynı kapsamda birebir aynı isme sahip iki altprogram tanımlamak veya aynı fonksiyon içinde aynı isme sahip iki parametre (int a, int a) tanımlamak",
+          "D) Java metodunun başına public static yazmak",
+          "E) main fonksiyonu içerisinden başka bir fonksiyonu çağırmak"
+        ],
+        ans: 2,
+        exp: "SİNSİ DETAY (Slayt 5, s.19-20): 'Aynı isme sahip iki adet altprogram olamaz... Aynı isme sahip iki adet değişken olmayacağı gibi, aynı isme sahip iki adet parametre de olamaz!'"
+      },
+      {
+        id: 26, cat: "S45_IO_FONK", slide: "Slayt 5 / Sayfa 27", trap: "Java Metotlarında public static",
+        q: "C++'da yazdığımız 'int Topla(int s1, int s2)' fonksiyonunu Java'da main içinden nesne üretmeden doğrudan çağırabilmek için başına hangi ek getirilmelidir ve neden?",
+        options: [
+          "A) 'private void' — Sadece o sınıfta çalışması için",
+          "B) 'public static' — public her yerden ulaşılmasını sağlar, static ise nesne üretmeden doğrudan metoda ulaşılabilmesini sağlar",
+          "C) 'using namespace' — İsim uzayına dahil etmek için",
+          "D) 'unsigned' — Negatif değer döndürmemesi için",
+          "E) 'import' — Kütüphaneye eklemek için"
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 5, s.27): 'public anahtar kelimesi bu metodun her yerden ulaşılabilmesini sağlar. static anahtar kelimesi ise bu metodun statik yapıda olduğunu belirtir ve nesne üretmeden direk bu metoda ulaşılabilmesini sağlar.'"
+      },
+
+      // BÖLÜM 4: SLAYT 6 & 7 KARAR YAPILARI, RECURSIVE VE DÖNGÜ TUZAKLARI (27-34)
+      {
+        id: 27, cat: "S67_KARAR_DONGU", slide: "Slayt 6 / Sayfa 4-5", trap: "Süslü Parantezsiz If Bloğu",
+        q: "Süslü parantezler {} ile blok açılmadan kullanılan bir If karar yapısının altına alt alta 2 satır işlem yazılırsa ne olur?",
+        options: [
+          "A) Derleyici Syntax Error verir ve programı derlemez.",
+          "B) Her iki satır da sadece koşul doğru olduğunda çalışır.",
+          "C) Parantez olmadan kullanılan If bloklarında sadece ilk satır koşula bağlı çalışır; ikinci satır koşul sağlanmasa bile her zaman çalışır!",
+          "D) Sadece ikinci satır koşula bağlı çalışır.",
+          "E) Hiçbir satır çalışmaz."
+        ],
+        ans: 2,
+        exp: "SİNSİ DETAY (Slayt 6, s.4-5): 'Fakat parantez olmadan kullanılan If bloklarında sadece ilk satır çalışır!' (İkinci satır if bloğunun dışındadır)."
+      },
+      {
+        id: 28, cat: "S67_KARAR_DONGU", slide: "Slayt 6 / Sayfa 16", trap: "Switch-Case Ondalıklı ve Aralık Yasağı",
+        q: "Switch-Case karar yapısı ile ilgili Slayt 6'da belirtilen iki kritik kısıtlama (yasak) aşağıdakilerden hangisidir?",
+        options: [
+          "A) int ile kullanılamaz ve default bloğu alamaz.",
+          "B) double ve float gibi ondalıklı sayılarla (veri kaybı nedeniyle) kullanılamaz VE büyüklük/küçüklük (<, >) gibi kontrollere izin vermez (sadece eşitlik kontrol eder).",
+          "C) 3'ten fazla case yazılamaz ve C++ dilinde çalışmaz.",
+          "D) İçerisinde cout veya println kullanılamaz.",
+          "E) break anahtar kelimesi kullanılması yasaktır."
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 6, s.16): 'Ancak double ve float gibi ondalıklı sayılarda veri kaybı olabileceklerinden dolayı switch-case ile kullanılamazlar. Aynı zamanda switch-case karar yapısı sahip olduğu iç yapısı nedeniyle büyüklük ya da küçüklük gibi kontrollere izin vermez. Sadece eşitliğin sağlandığı durumları kontrol etmede kullanılabilirler.'"
+      },
+      {
+        id: 29, cat: "S67_KARAR_DONGU", slide: "Slayt 6 / Sayfa 23", trap: "Switch-Case Break Unutulması",
+        q: "Bir switch-case yapısında case bloklarının hiçbirinde 'break;' anahtar kelimesi kullanılmazsa ve değişken ilk case ile eşleşirse ne olur?",
+        options: [
+          "A) Derleyici Syntax Error verir.",
+          "B) Sadece ilk case çalışır ve switch'ten çıkılır.",
+          "C) İşlenmeye başlanılan koşul bloğundan sonraki TÜM koşul blokları da işlenir ve programda bir mantık hatası oluşur.",
+          "D) Doğrudan sadece default bloğu çalışır.",
+          "E) Program sonsuz döngüye girer."
+        ],
+        ans: 2,
+        exp: "SİNSİ DETAY (Slayt 6, s.23): 'Break anahtar kelimesinin kullanılmadığı switch-case yapılarında değişkenin değeri ne olursa olsun işlenmeye başlanılan koşul bloğundan sonraki tüm koşul blokları da işlenir. Bu da... programda bir mantık hatası oluşturur.'"
+      },
+      {
+        id: 30, cat: "S67_KARAR_DONGU", slide: "Slayt 7 / Sayfa 6", trap: "Recursive Faktöriyel Püf Noktası",
+        q: "Slayt 7'de Recursive yöntemle faktöriyel hesaplanırken 'problemin çözümünün püf noktası' olarak belirtilen durma koşulu (Koşul Bloğu) nedir?",
+        options: [
+          "A) Gelen sayının 100'den büyük olup olmadığının kontrol edilmesi",
+          "B) 1! ifadesinin açılımı yine kendisine (1'e) eşit olduğu için gelen sayının 1 olup olmadığının (sayi == 1) kontrol edilmesi; 1 ise çarpılacak başka sayı kalmadığından geriye 1 döndürülmesi",
+          "C) Gelen sayının çift olup olmadığının kontrol edilmesi",
+          "D) Fonksiyonun void olarak tanımlanması",
+          "E) Sayının her adımda 2 ile çarpılması"
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 7, s.6): '1! ifadesinin açılımı yine kendisine eşittir. Aslında şu anda değindiğimiz nokta, bu problemin çözümünün püf noktasıdır... Faktöriyel hesaplamasında bu kontrol gelen sayının 1 olup olmadığı şeklinde yapılacaktır.'"
+      },
+      {
+        id: 31, cat: "S67_KARAR_DONGU", slide: "Slayt 7 / Sayfa 20", trap: "Do-While Noktalı Virgül İstisnası",
+        q: "Slayt 7'de 'do-while döngüsünün yazım standardı bir istisnai durum taşır' denilerek ünlem (!) ile vurgulanan kural nedir?",
+        options: [
+          "A) do kelimesinden sonra noktalı virgül konması zorunludur.",
+          "B) If, while ve benzeri yapıların koşul bloklarının sonunda noktalı virgül olmazken, do-while döngüsünün koşul bloğunun sonuna while(koşul); şeklinde noktalı virgül konması zorunludur!",
+          "C) do-while döngüsünde süslü parantez kullanmak yasaktır.",
+          "D) do-while döngüsü koşulu en başta kontrol eder.",
+          "E) do-while içinde sayaç kullanılamaz."
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 7, s.20 NOT): 'If, while ve benzeri yapıların koşul bloklarının sonunda noktalı virgül olmazken, do-while döngüsünün koşul bloğunun sonuna noktalı virgül konması zorunludur!'"
+      },
+      {
+        id: 32, cat: "S67_KARAR_DONGU", slide: "Slayt 7 / Sayfa 24", trap: "Do-While Değişken Kapsamı (Scope)",
+        q: "Aşağıdaki do-while kodu neden derleme hatası verir? (Slayt 7'de özellikle açıklanan tuzak!)",
+        code: "do {\n    int sayi;\n    cin >> sayi;\n    cout << sayi * sayi;\n} while (sayi != 0);",
+        options: [
+          "A) while sonunda noktalı virgül olduğu için",
+          "B) sayi değişkeni do bloğunun içerisinde tanımlandığı için, bloğun dışındaki while(sayi != 0); koşul cümlesinin yazıldığı yerde bu değişkene ulaşılamaz (döngü dışında tanımlanmalıydı)!",
+          "C) sayi * sayi işlemi paranteze alınmadığı için",
+          "D) 0 sayısı int olamayacağı için",
+          "E) cin komutu döngü içinde çalışmadığı için"
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 7, s.24): 'Dikkatlice bakacak olursak sayi değişkeni, döngünün dışında tanımlanmıştır. Bunun nedeni ise, bu değişkenin koşul cümlesinde kullanılmasıdır. Eğer değişkeni döngü içerisinde tanımlamış olsaydık, koşul cümlesinin yazıldığı yerde bu değişkene ulaşamazdık.'"
+      },
+      {
+        id: 33, cat: "S67_KARAR_DONGU", slide: "Slayt 7 / Sayfa 29", trap: "For Döngüsü Gereksiz Koşul Notu",
+        q: "0 ile 20 arasındaki sayıları ekrana yazdıran 'for (int i = 0; i <= 20; i++)' döngüsünde koşul ifadesi olarak 'i >= 0 && i <= 20' yazılması hakkında slaytta ne söylenmiştir?",
+        options: [
+          "A) Kesinlikle öyle yazılmalıdır, yoksa hata verir.",
+          "B) Yazılabilirdi; fakat döngü i değişkenini zaten 0 değerinden başlatacağı (ve arttıracağı) için 'i >= 0' kontrolü gereksiz olacaktır.",
+          "C) for döngüsü içinde && operatörü kullanılamaz.",
+          "D) i değişkeni 0'dan başlatılamaz.",
+          "E) Böyle yazılırsa döngü hiç çalışmaz."
+        ],
+        ans: 1,
+        exp: "SİNSİ DETAY (Slayt 7, s.29): 'Bu programda koşul ifadesi olarak i >= 0 && i <= 20 da yazılabilirdi. Fakat döngü i değişkenini zaten 0 değerinden başlatacağı için böyle bir kontrol gereksiz olacaktır.'"
+      },
+      {
+        id: 34, cat: "S67_KARAR_DONGU", slide: "Slayt 7 / Sayfa 29-33", trap: "Çoklu For Döngüsü Ayraçları",
+        q: "Bir for döngüsünde birden fazla sayaç değişkeni tanımlanıp birden fazla artış/azalış operatörü yazıldığında, ana bölümler ve değişkenler birbirinden hangi işaretlerle ayrılır?",
+        options: [
+          "A) Tüm ifadelerin arasına sadece noktalı virgül (;) konur.",
+          "B) Tüm ifadelerin arasına sadece virgül (,) konur.",
+          "C) For döngüsünün 3 ana bölümü (tanım; koşul; artış) arasına noktalı virgül (;) konurken, aynı bölüm içindeki çoklu değişken tanımları ve çoklu artış ifadeleri arasına virgül (,) konur.",
+          "D) İki nokta üst üste (:) kullanılır.",
+          "E) For döngüsünde birden fazla sayaç tanımlanamaz."
+        ],
+        ans: 2,
+        exp: "SİNSİ DETAY (Slayt 7, s.29-33): for (int a = 0, b = 20; a <= 20 && b >= 10; a += 2, b--) örneğinde görüldüğü gibi sayaçlar virgülle, 3 ana bölüm ise noktalı virgülle ayrılır."
+      },
+
+      // BÖLÜM 5: AVCI KOD ÇIKTILARI (EN ÇOK YANILTAN 6 KOD) (35-40)
+      {
+        id: 35, cat: "KOD_TUZAK", slide: "Avcı Kod 1 / Atama vs Eşitlik & Parantezsiz If",
+        q: "Aşağıdaki C++ kodunun ekran çıktısı nedir? (İki sinsi tuzak bir arada!)",
+        code: "int a = 10;\nint b = ++a;\nif (b > 15)\n    cout << \"Buyuk \";\n    cout << b;",
+        options: [
+          "A) Hiçbir şey yazmaz",
+          "B) Sadece 10 yazar",
+          "C) Sadece 11 yazar",
+          "D) Buyuk 11 yazar",
+          "E) Buyuk 10 yazar"
+        ],
+        ans: 2,
+        exp: "1. Tuzak: b = ++a olduğu için a önce 11 olur ve b'ye 11 atanır. 2. Tuzak: if (b > 15) yanlıştır ama süslü parantez {} olmadığı için sadece 'cout << \"Buyuk \";' atlanır; ikinci satırdaki 'cout << b;' her durumda çalışır ve ekrana 11 yazar!"
+      },
+      {
+        id: 36, cat: "KOD_TUZAK", slide: "Avcı Kod 2 / Switch-Case Fall-Through",
+        q: "Aşağıdaki kod parçasında x = 2 olduğunda değişkenin son değeri (y) kaç olur?",
+        code: "int x = 2, y = 10;\nswitch (x) {\n    case 1: y += 5; break;\n    case 2: y += 10;\n    case 3: y *= 2;\n    default: y -= 4;\n}",
+        options: [
+          "A) 20",
+          "B) 40",
+          "C) 36",
+          "D) 16",
+          "E) 6"
+        ],
+        ans: 2,
+        exp: "SİNSİ TUZAK: case 2'den girer -> y = 10 + 10 = 20 olur. break olmadığı için case 3'e düşer -> y = 20 * 2 = 40 olur. Orada da break olmadığı için default'a düşer -> y = 40 - 4 = 36 olur!"
+      },
+      {
+        id: 37, cat: "KOD_TUZAK", slide: "Avcı Kod 3 / Sonradan Arttırma ve Return",
+        q: "Aşağıdaki C++ programının ekran çıktısı nedir?",
+        code: "int Fonk(int x) {\n    return x++;\n    x = x + 50;\n}\nint main() {\n    cout << Fonk(8);\n}",
+        options: [
+          "A) 8",
+          "B) 9",
+          "C) 58",
+          "D) 59",
+          "E) Derleme hatası"
+        ],
+        ans: 0,
+        exp: "SİNSİ TUZAK: 'return x++;' ifadesinde operatör arkada olduğu için fonksiyon x'in o anki değerini (8) çağrıldığı yere döndürür ve biter! Altındaki x = x + 50 satırı zaten ölü koddur."
+      },
+      {
+        id: 38, cat: "KOD_TUZAK", slide: "Avcı Kod 4 / İşlem Önceliği ve Tam Sayı Bölmesi",
+        q: "Aşağıdaki C++ kodunun ekran çıktısı nedir?",
+        code: "int x = 2, y = 4;\nint sonuc = 10 + x + y / x * y;\ncout << sonuc;",
+        options: [
+          "A) 32",
+          "B) 20",
+          "C) 12",
+          "D) 16",
+          "E) 14"
+        ],
+        ans: 1,
+        exp: "Öncelik bölme ve çarpmadadır (soldan sağa): y / x = 4 / 2 = 2 -> 2 * y = 2 * 4 = 8. Ardından toplama: 10 + 2 + 8 = 20."
+      },
+      {
+        id: 39, cat: "KOD_TUZAK", slide: "Avcı Kod 5 / Do-While ve Mantıksal Değil (!)",
+        q: "Aşağıdaki döngü bittiğinde ekrana hangi sayı yazdırılır?",
+        code: "int a = 5;\ndo {\n    a += 3;\n} while (!(a > 6));\ncout << a;",
+        options: [
+          "A) 5",
+          "B) 6",
+          "C) 8",
+          "D) 11",
+          "E) Sonsuz döngü"
+        ],
+        ans: 2,
+        exp: "a = 5 ile başlar, do bloğuna girer ve a = 8 olur. Koşulda: (a > 6) -> (8 > 6) doğrudur (1). Önünde DEĞİL (!) olduğu için !(1) = 0 (false) olur ve döngü ilk tur sonunda biter. Ekrana 8 yazar."
+      },
+      {
+        id: 40, cat: "KOD_TUZAK", slide: "Avcı Kod 6 / Recursive Adım Sayısı",
+        q: "Aşağıdaki recursive fonksiyon Sinsi(7) olarak çağrıldığında ekrana ne yazar?",
+        code: "int Sinsi(int n) {\n    if (n <= 2) return 2;\n    return 3 + Sinsi(n - 2);\n}",
+        options: [
+          "A) 8",
+          "B) 11",
+          "C) 14",
+          "D) 9",
+          "E) 5"
+        ],
+        ans: 1,
+        exp: "Adım adım: Sinsi(7) = 3 + Sinsi(5) = 3 + 3 + Sinsi(3) = 3 + 3 + 3 + Sinsi(1). n=1 olduğunda (n <= 2) koşul bloğu çalışır ve 2 döndürür: 3 + 3 + 3 + 2 = 11."
+      }
+    ];
+
+    let filteredQuestions = [...questions];
+    let currentIndex = 0;
+    let userAnswers = {};
+    let revealedAnswers = {};
+    let examMode = false;
+    let examFinished = false;
+
+    function initApp() {
+      populateJumpSelect();
+      renderQuestion();
+      updateStats();
+    }
+
+    function switchTab(tab) {
+      const quizSec = document.getElementById('quizSection');
+      const trapsSec = document.getElementById('trapsSection');
+      const btnQuiz = document.getElementById('tabQuizBtn');
+      const btnTraps = document.getElementById('tabTrapsBtn');
+
+      if (tab === 'quiz') {
+        quizSec.classList.remove('hidden');
+        trapsSec.classList.add('hidden');
+        btnQuiz.className = "inline-flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 rounded-lg text-xs font-medium bg-rose-600 text-white shadow-sm transition";
+        btnTraps.className = "inline-flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition";
+      } else {
+        quizSec.classList.add('hidden');
+        trapsSec.classList.remove('hidden');
+        btnTraps.className = "inline-flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 rounded-lg text-xs font-medium bg-rose-600 text-white shadow-sm transition";
+        btnQuiz.className = "inline-flex items-center justify-center gap-1.5 px-3 py-2 sm:py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition";
+      }
+    }
+
+    function filterByCategory() {
+      const cat = document.getElementById('categorySelect').value;
+      if (cat === 'ALL') {
+        filteredQuestions = [...questions];
+      } else {
+        filteredQuestions = questions.filter(q => q.cat === cat);
+      }
+      currentIndex = 0;
+      populateJumpSelect();
+      renderQuestion();
+    }
+
+    function populateJumpSelect() {
+      const sel = document.getElementById('jumpSelect');
+      sel.innerHTML = '';
+      filteredQuestions.forEach((q, idx) => {
+        const opt = document.createElement('option');
+        opt.value = idx;
+        const mark = userAnswers[q.id] !== undefined
+          ? (examMode && !examFinished ? ' [Secildi]' : (userAnswers[q.id] === q.ans ? ' [Dogru]' : ' [Yanlis]'))
+          : '';
+        opt.textContent = `Soru ${idx + 1} (#${q.id})${mark}`;
+        sel.appendChild(opt);
+      });
+    }
+
+    function toggleExamMode() {
+      examMode = !examMode;
+      examFinished = false;
+      const btn = document.getElementById('modeToggleBtn');
+      const finishBtnLabel = document.getElementById('finishBtnLabel');
+      if (examMode) {
+        btn.textContent = "Mod: Sınav Simülasyonu";
+        finishBtnLabel.textContent = "Sınavı Bitir";
+      } else {
+        btn.textContent = "Mod: Anında Tuzak Analizi";
+        finishBtnLabel.textContent = "Sıfırla";
+      }
+      populateJumpSelect();
+      renderQuestion();
+      updateStats();
+    }
+
+    function renderQuestion() {
+      const q = filteredQuestions[currentIndex];
+      if (!q) return;
+
+      document.getElementById('qBadge').textContent = `${q.slide} (Soru #${q.id})`;
+      document.getElementById('qTrapTag').textContent = `Tuzak: ${q.trap}`;
+      document.getElementById('qText').textContent = `${currentIndex + 1}. ${q.q}`;
+      document.getElementById('questionCounterText').textContent = `Soru ${currentIndex + 1} / ${filteredQuestions.length}`;
+      
+      const pct = Math.round(((currentIndex + 1) / filteredQuestions.length) * 100);
+      document.getElementById('progressBar').style.width = `${pct}%`;
+
+      const codeEl = document.getElementById('qCode');
+      if (q.code) {
+        codeEl.textContent = q.code;
+        codeEl.classList.remove('hidden');
+      } else {
+        codeEl.classList.add('hidden');
+      }
+
+      const selected = userAnswers[q.id];
+      const showFeedback = (!examMode && (selected !== undefined || revealedAnswers[q.id])) || (examMode && examFinished) || revealedAnswers[q.id];
+
+      const statusBadge = document.getElementById('qStatusBadge');
+      if (selected === undefined && !revealedAnswers[q.id]) {
+        statusBadge.textContent = "Henüz cevaplanmadı";
+        statusBadge.className = "inline-flex items-center gap-1 text-xs font-medium text-slate-400";
+      } else if (examMode && !examFinished && !revealedAnswers[q.id]) {
+        statusBadge.textContent = "İşaretlendi (Sınav sonunda açıklanacak)";
+        statusBadge.className = "inline-flex items-center gap-1 text-xs font-medium text-rose-300";
+      } else if (selected === q.ans) {
+        statusBadge.innerHTML = `${SVG_CHECK}<span>Tuzağa Düşmediniz!</span>`;
+        statusBadge.className = "inline-flex items-center gap-1 text-xs font-semibold text-emerald-400";
+      } else if (selected !== undefined) {
+        statusBadge.innerHTML = `${SVG_CROSS}<span>Tuzağa Düştünüz</span>`;
+        statusBadge.className = "inline-flex items-center gap-1 text-xs font-semibold text-rose-400";
+      } else {
+        statusBadge.innerHTML = `${SVG_EYE}<span>Tuzak Analizi Gösterildi</span>`;
+        statusBadge.className = "inline-flex items-center gap-1 text-xs font-medium text-amber-300";
+      }
+
+      const optContainer = document.getElementById('optionsContainer');
+      optContainer.innerHTML = '';
+
+      q.options.forEach((optText, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        let baseClass = "w-full text-left px-3.5 py-3 sm:py-2.5 rounded-lg border text-xs sm:text-sm font-medium transition flex items-start justify-between gap-2 break-words ";
+        
+        if (idx === 4) {
+          baseClass += "md:col-span-2 ";
+        }
+
+        if (!showFeedback) {
+          if (selected === idx) {
+            baseClass += "border-rose-500 bg-rose-950/60 text-rose-200 ring-1 ring-rose-500";
+          } else {
+            baseClass += "border-slate-800 bg-[#131c31] text-slate-200 hover:bg-slate-800 hover:border-slate-700";
+          }
+        } else {
+          if (idx === q.ans) {
+            baseClass += "border-emerald-500/80 bg-emerald-950/50 text-emerald-200 font-semibold";
+          } else if (selected === idx && idx !== q.ans) {
+            baseClass += "border-rose-500/80 bg-rose-950/50 text-rose-200";
+          } else {
+            baseClass += "border-slate-800/80 bg-[#0f172a] text-slate-400 opacity-70";
+          }
+        }
+
+        btn.className = baseClass;
+        btn.onclick = () => selectOption(q.id, idx);
+
+        const spanText = document.createElement('span');
+        spanText.textContent = optText;
+        btn.appendChild(spanText);
+
+        if (showFeedback) {
+          const iconWrap = document.createElement('span');
+          iconWrap.className = "shrink-0 mt-0.5";
+          if (idx === q.ans) {
+            iconWrap.innerHTML = SVG_CHECK;
+            btn.appendChild(iconWrap);
+          } else if (selected === idx) {
+            iconWrap.innerHTML = SVG_CROSS;
+            btn.appendChild(iconWrap);
+          }
+        }
+
+        optContainer.appendChild(btn);
+      });
+
+      const expBox = document.getElementById('explanationBox');
+      if (showFeedback) {
+        expBox.classList.remove('hidden');
+        expBox.className = "rounded-lg p-3 border border-slate-700 bg-[#131c31] text-xs leading-relaxed text-slate-200";
+        const correctLetter = ["A", "B", "C", "D", "E"][q.ans];
+        expBox.innerHTML = `<b class="text-emerald-400">Doğru Şık: ${correctLetter}</b> — ${q.exp}`;
+      } else {
+        expBox.classList.add('hidden');
+      }
+
+      document.getElementById('prevBtn').disabled = (currentIndex === 0);
+      document.getElementById('nextBtn').disabled = (currentIndex === filteredQuestions.length - 1);
+      document.getElementById('jumpSelect').value = currentIndex;
+    }
+
+    function selectOption(qId, optIdx) {
+      if (examMode && examFinished) return;
+      userAnswers[qId] = optIdx;
+      populateJumpSelect();
+      renderQuestion();
+      updateStats();
+    }
+
+    function showCurrentAnswer() {
+      const q = filteredQuestions[currentIndex];
+      if (!q) return;
+      revealedAnswers[q.id] = true;
+      renderQuestion();
+    }
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+      }
+    }
+
+    function nextQuestion() {
+      if (currentIndex < filteredQuestions.length - 1) {
+        currentIndex++;
+        renderQuestion();
+      }
+    }
+
+    function jumpToQuestion(idxStr) {
+      currentIndex = parseInt(idxStr, 10);
+      renderQuestion();
+    }
+
+    function updateStats() {
+      let correct = 0;
+      let wrong = 0;
+      let empty = 0;
+
+      questions.forEach(q => {
+        const sel = userAnswers[q.id];
+        if (sel === undefined) {
+          empty++;
+        } else if (sel === q.ans) {
+          correct++;
+        } else {
+          wrong++;
+        }
+      });
+
+      document.getElementById('statCorrect').textContent = correct;
+      document.getElementById('statWrong').textContent = (examMode && !examFinished) ? "?" : wrong;
+      document.getElementById('statEmpty').textContent = empty;
+      const score = Math.round((correct / questions.length) * 100);
+      document.getElementById('statScore').textContent = (examMode && !examFinished) ? "?" : score;
+    }
+
+    function finishOrResetExam() {
+      const finishBtnLabel = document.getElementById('finishBtnLabel');
+      if (examMode && !examFinished) {
+        examFinished = true;
+        finishBtnLabel.textContent = "Sıfırla";
+        populateJumpSelect();
+        renderQuestion();
+        updateStats();
+      } else {
+        userAnswers = {};
+        revealedAnswers = {};
+        examFinished = false;
+        if (examMode) {
+          finishBtnLabel.textContent = "Sınavı Bitir";
+        }
+        currentIndex = 0;
+        populateJumpSelect();
+        renderQuestion();
+        updateStats();
+      }
+    }
+
+    initApp();
+  </script>
+</body>
+</html>
